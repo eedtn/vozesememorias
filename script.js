@@ -1,9 +1,3 @@
- <!-- 
-    =======================================================================
-                        AQUI COMEÇA O JAVASCRIPT (Lógica)
-         (Se for separar, copie tudo daqui pra baixo para um script.js)
-    ======================================================================= 
-    -->
     <script>
         
         // --- 1. DADOS DE CONTEÚDO ---
