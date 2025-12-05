@@ -1,7 +1,3 @@
-<!-- 
-    ARQUIVO UNIFICADO PARA PREVIEW
--->
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -9,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vozes e Memórias - E. E. Dr. Tancredo Neves</title>
     
-    <!-- Bibliotecas Externas -->
+    <!-- Bibliotecas Externas (Tailwind CSS, Fontes, Ícones) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
 
+    <!-- Configuração do Tailwind -->
     <script>
         tailwind.config = {
             theme: {
@@ -24,8 +21,14 @@
             }
         }
     </script>
+    <!-- 
+    =======================================================================
+                            AQUI COMEÇA O HTML 
+             (Estrutura da página, menus, seções e modais)
+    ======================================================================= 
+    -->
 
-    <!-- CABEÇALHO -->
+    <!-- CABEÇALHO (MENU) -->
     <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-stone-200 shadow-sm">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center gap-3">
@@ -38,18 +41,24 @@
                 </div>
             </div>
             
+            <!-- Menu Desktop -->
             <nav class="hidden md:flex items-center gap-8 font-medium text-stone-600">
                 <a href="#" class="hover:text-amber-600 transition-colors">Início</a>
                 <button onclick="openStaticModal('projeto')" class="hover:text-amber-600 transition-colors">O Projeto</button>
                 <button onclick="openVideoGallery()" class="hover:text-amber-600 transition-colors">Documentários</button>
-                <a href="#contato" class="px-4 py-2 bg-amber-600 text-white rounded-full hover:bg-amber-700 transition-colors shadow-md">Contato</a>
+                <a href="#contato" class="px-4 py-2 bg-amber-600 text-white rounded-full hover:bg-amber-700 transition-colors shadow-md">
+                    Contato
+                </a>
             </nav>
 
-            <button id="menu-btn" class="md:hidden text-stone-600"><i data-lucide="menu" width="28" height="28"></i></button>
+            <!-- Menu Mobile (Ícone) -->
+            <button id="menu-btn" class="md:hidden text-stone-600">
+                <i data-lucide="menu" width="28" height="28"></i>
+            </button>
         </div>
     </header>
 
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION (BANNER PRINCIPAL) -->
     <section class="relative bg-stone-900 text-white py-20 md:py-32 overflow-hidden">
         <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
         <div class="absolute inset-0 bg-gradient-to-t from-stone-900 via-transparent to-transparent"></div>
@@ -75,7 +84,7 @@
         </div>
     </section>
 
-    <!-- CONTEÚDO PRINCIPAL -->
+    <!-- CONTEÚDO PRINCIPAL (GRID DE POSTS) -->
     <main class="container mx-auto px-4 py-16">
         <div class="flex items-end justify-between mb-12 border-b border-stone-200 pb-4">
             <div>
@@ -83,138 +92,162 @@
                 <p class="text-stone-500 mt-2">Histórias, saberes e tradições resgatadas pelos alunos.</p>
             </div>
             <div class="hidden md:flex gap-2 text-stone-400 text-sm">
-                <span>#VozesEMemórias</span> • <span>#CulturaViva</span>
+                <span>#VozesEMemórias</span>
+                <span>•</span>
+                <span>#CulturaViva</span>
             </div>
         </div>
 
-        <div id="posts-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Cards via JS -->
-        </div>
+        <!-- Container onde os cards serão inseridos via JavaScript -->
+        <div id="posts-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
     </main>
 
-    <!-- CITAÇÃO -->
+    <!-- CITAÇÃO (QUOTE SECTION) -->
     <section class="bg-amber-900 text-amber-50 py-16 border-t border-amber-800">
         <div class="container mx-auto px-4 text-center max-w-3xl">
-            <div class="flex justify-center mb-6 opacity-50"><i data-lucide="share-2" width="40" height="40"></i></div>
+            <div class="flex justify-center mb-6 opacity-50">
+                <i data-lucide="share-2" width="40" height="40"></i>
+            </div>
             <blockquote class="text-2xl md:text-3xl font-serif italic leading-relaxed mb-6">
                 "Uma parceria entre a Educação e Cultura, celebrando a força da nossa identidade."
             </blockquote>
-            <cite class="not-italic font-semibold tracking-wider text-amber-200/80">— Projeto Vozes e Memórias</cite>
+            <cite class="not-italic font-semibold tracking-wider text-amber-200/80">
+                — Projeto Vozes e Memórias
+            </cite>
         </div>
     </section>
 
-    <!-- RODAPÉ -->
+    <!-- RODAPÉ (FOOTER) -->
     <footer id="contato" class="bg-stone-900 text-stone-400 py-12 border-t border-stone-800">
         <div class="container mx-auto px-4">
+            <!-- Grid de 3 Colunas -->
             <div class="grid md:grid-cols-3 gap-8 mb-12">
+                
+                <!-- Coluna 1: Escola -->
                 <div>
                     <h4 class="text-white font-bold mb-4 flex items-center gap-2">
-                        <i data-lucide="book-open" width="20" height="20" class="text-amber-600"></i> E. E. Dr. Tancredo Neves
+                        <i data-lucide="book-open" width="20" height="20" class="text-amber-600"></i>
+                        E. E. Dr. Tancredo Neves
                     </h4>
                     <p class="text-sm leading-relaxed text-stone-400">
                         Formando cidadãos e preservando a história de José Gonçalves de Minas através da educação e da cultura.
                     </p>
                 </div>
+
+                <!-- Coluna 2: Tags -->
                 <div>
                     <h4 class="text-white font-bold mb-4">Tags do Projeto</h4>
                     <div class="flex flex-wrap gap-2">
-                        <span class="bg-stone-800 text-xs px-2 py-1 rounded border border-stone-700">#VozesEMemórias</span>
-                        <span class="bg-stone-800 text-xs px-2 py-1 rounded border border-stone-700">#CulturaViva</span>
-                        <span class="bg-stone-800 text-xs px-2 py-1 rounded border border-stone-700">#Agronegócio</span>
-                        <span class="bg-stone-800 text-xs px-2 py-1 rounded border border-stone-700">#HistóriaOral</span>
+                        <span class="bg-stone-800 text-xs px-2 py-1 rounded border border-stone-700 hover:text-white transition-colors cursor-default">#VozesEMemórias</span>
+                        <span class="bg-stone-800 text-xs px-2 py-1 rounded border border-stone-700 hover:text-white transition-colors cursor-default">#CulturaViva</span>
+                        <span class="bg-stone-800 text-xs px-2 py-1 rounded border border-stone-700 hover:text-white transition-colors cursor-default">#Agronegócio</span>
+                        <span class="bg-stone-800 text-xs px-2 py-1 rounded border border-stone-700 hover:text-white transition-colors cursor-default">#HistóriaOral</span>
                     </div>
                 </div>
+
+                <!-- Coluna 3: Contato e Social -->
                 <div>
                     <h4 class="text-white font-bold mb-4">Contato</h4>
                     <div class="space-y-2 text-sm text-stone-400">
-                        <p class="flex items-center gap-2"><i data-lucide="map-pin" width="16" height="16"></i> José Gonçalves de Minas - MG</p>
+                        <p class="flex items-center gap-2">
+                            <i data-lucide="map-pin" width="16" height="16"></i>
+                            José Gonçalves de Minas - MG
+                        </p>
                         <a href="#" class="inline-flex items-center gap-2 mt-2 text-amber-600 hover:text-amber-500 transition-colors">
-                            <i data-lucide="instagram" width="16" height="16"></i> Siga no Instagram
+                            <i data-lucide="instagram" width="16" height="16"></i>
+                            Siga no Instagram
                         </a>
                     </div>
                 </div>
             </div>
+
+            <!-- Linha de Copyright -->
             <div class="text-center pt-8 border-t border-stone-800 text-xs text-stone-500">
                 <p>&copy; 2025 Projeto Vozes e Memórias. Todos os direitos reservados.</p>
                 <p class="mt-2 text-stone-600">
-                    Site criado por: <a href="https://instagram.com/seu_usuario_aqui" target="_blank" class="text-amber-600 hover:text-white transition-colors font-medium">@seu_instagram</a>
+                    Site criado por: 
+                    <!-- Substitua pelo seu usuário real -->
+                    <a href="https://instagram.com/seu_usuario_aqui" target="_blank" class="text-amber-600 hover:text-white transition-colors font-medium">@seu_instagram</a>
                 </p>
             </div>
         </div>
     </footer>
 
-    <!-- MODAL 1: TEXTO & PDF -->
+    <!-- MODAL 1: PARA LEITURA DE TEXTO E PDF -->
     <div id="modal-backdrop" class="fixed inset-0 bg-black/60 z-50 hidden items-center justify-center p-4 backdrop-blur-sm fade-in">
         <div class="bg-[#fdfbf7] rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto custom-scroll shadow-2xl relative">
             <button id="modal-close" class="absolute top-4 right-4 p-2 bg-stone-200 rounded-full hover:bg-stone-300 transition-colors text-stone-700">
                 <i data-lucide="x" width="20" height="20"></i>
             </button>
             <div class="p-8 md:p-12" id="text-modal-content-wrapper">
-                <!-- Conteúdo entra aqui -->
+                <!-- Conteúdo do texto e PDF entra aqui -->
             </div>
         </div>
     </div>
 
-    <!-- MODAL 2: VÍDEOS -->
+    <!-- MODAL 2: GALERIA DE VÍDEOS -->
     <div id="video-gallery-modal" class="fixed inset-0 bg-stone-900/95 z-50 hidden items-center justify-center p-4 backdrop-blur-md fade-in">
         <div class="w-full max-w-6xl max-h-[90vh] flex flex-col relative">
             <div class="flex justify-between items-center mb-6 text-white">
                 <div>
-                    <h2 class="text-2xl font-serif font-bold">Documentários</h2>
+                    <h2 class="text-2xl font-serif font-bold">Documentários Produzidos</h2>
                     <p class="text-stone-400 text-sm">Clique para assistir</p>
                 </div>
-                <button onclick="closeVideoGallery()" class="p-2 bg-white/10 rounded-full hover:bg-white/20 text-white"><i data-lucide="x" width="24" height="24"></i></button>
+                <button onclick="closeVideoGallery()" class="p-2 bg-white/10 rounded-full hover:bg-white/20 transition-colors text-white">
+                    <i data-lucide="x" width="24" height="24"></i>
+                </button>
             </div>
+            <!-- Player -->
             <div id="main-player-container" class="hidden w-full aspect-video bg-black rounded-xl overflow-hidden shadow-2xl mb-8 border border-stone-700"></div>
+            <!-- Lista de Vídeos -->
             <div id="video-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 overflow-y-auto custom-scroll pr-2 pb-4"></div>
         </div>
     </div>
+    <!-- ================= FIM DO HTML ================= -->
 
+
+    <!-- 
+    =======================================================================
+                        AQUI COMEÇA O JAVASCRIPT (Lógica)
+         (Se for separar, copie tudo daqui pra baixo para um script.js)
+    ======================================================================= 
+    -->
     <script>
-        const staticContent = {
-            projeto: {
-                title: "O Projeto Vozes e Memórias", category: "Institucional", icon: "book-open", color: "amber",
-                content: `<p><strong>Resgatando raízes...</strong> (texto completo aqui)</p>`
-            },
-            curso: {
-                title: "Sobre o Curso Técnico em Agronegócio", category: "Formação", icon: "graduation-cap", color: "emerald",
-                content: `<p><strong>Formando profissionais...</strong> (texto completo aqui)</p>`
-            }
-        };
-
-        // --- IMPORTANTE: CONFIGURAÇÃO DOS PDFs ---
-        // Você precisa colocar o nome exato do arquivo que está na sua pasta 'arquivos'
+        
+        // --- 1. DADOS DE CONTEÚDO (POSTS DO BLOG) ---
+        
         const postsData = [
             {
                 id: 1,
                 title: "O Mistério da Mulher de Branco e o Lobisomem",
                 category: "Causos & Lendas",
                 excerpt: "Nas margens do rio ou na escuridão da quaresma, as histórias de assombração moldaram o comportamento de uma geração.",
-                fullContent: `Dona Nelcides nos contou um relato de arrepiar...`,
+                fullContent: `Dona Nelcides nos contou um relato de arrepiar que aconteceu com ela e sua irmã, Nilda. Após a morte do pai, as irmãs brigavam muito, até que um dia, no rio, viram uma aparição: uma mulher de saia preta e blusa branca em cima da pedra que dizia 'não briga'. O medo foi tanto que nunca mais voltaram lá sozinhas.\n\nMas os mistérios não param por aí. As noites antigas eram iluminadas por fogueiras onde se contavam histórias de Lobisomem. A lenda do sétimo filho assombrava as crianças. Dizia-se que na Quaresma o menino virava bicho.`,
                 author: "Relato de D. Nelcides",
                 date: "04 Dez 2024",
                 icon: "ghost",
                 color: "purple",
-                pdfUrl: "arquivos/MEMORIAS_DO_VALE_JGM.pdf" // NOME DO ARQUIVO PDF AQUI
+                // Aqui você coloca o caminho do seu arquivo PDF
+                pdfUrl: "arquivos/MEMORIAS_DO_VALE_JGM.pdf" 
             },
             {
                 id: 2,
                 title: "Camas de Couro e Salada de Mato: A Vida na Roça",
                 category: "Raízes Rurais",
                 excerpt: "Sr. Antônio Lago relembra os tempos difíceis, mas felizes, onde o trabalho era coletivo e a diversão era garantida.",
-                fullContent: `A vida no campo antigamente era 'da água para o vinho'...`,
+                fullContent: `A vida no campo antigamente era 'da água para o vinho' comparada a hoje, conta Sr. Antônio. Na Fazenda Lago, a comunidade era unida: para derrubar mato ou colher, juntavam-se até 50 pessoas num mutirão cantante.\n\nNão havia luxo. Dormia-se em 'catres' de couro. E quando a fome apertava? A solução estava na natureza: faziam a 'ganhaçaia', uma salada de mato temperada. Mas também havia alegria, festas com sanfona e respeito entre as pessoas.`,
                 author: "Relato de Sr. Antônio",
                 date: "04 Dez 2024",
                 icon: "sun",
                 color: "amber",
-                pdfUrl: "arquivos/A_casa_no_fim_da_rua.pdf" // NOME DO ARQUIVO PDF AQUI
+                pdfUrl: "arquivos/A_casa_no_fim_da_rua.pdf"
             },
             {
                 id: 3,
                 title: "A Luta pela Emancipação",
                 category: "Nossa História",
                 excerpt: "Como José Gonçalves de Minas deixou de ser distrito de Berilo para se tornar independente.",
-                fullContent: `A identidade de um povo também se faz na política...`,
+                fullContent: `A identidade de um povo também se faz na política e na educação. Dona Daci, filha do primeiro tabelião da cidade, relembra com orgulho a luta pela emancipação. José Gonçalves de Minas era distrito de Berilo, mas o desejo de independência falou mais alto.\n\nEm 22 de dezembro de 1995, após um plebiscito onde o 'Sim' venceu, a cidade nasceu oficialmente.`,
                 author: "Relato de D. Daci",
                 date: "04 Dez 2024",
                 icon: "map-pin",
@@ -223,23 +256,49 @@
             }
         ];
 
+        // Conteúdo Estático (O Projeto e Sobre o Curso)
+        const staticContent = {
+            projeto: {
+                title: "O Projeto Vozes e Memórias",
+                category: "Institucional",
+                icon: "book-open",
+                color: "amber",
+                content: `
+                    <p><strong>Resgatando raízes, fortalecendo identidades.</strong></p>
+                    <p>O Projeto Vozes e Memórias nasceu da necessidade de conectar as novas gerações de José Gonçalves de Minas com sua história. Idealizado dentro da E. E. Dr. Tancredo Neves, a iniciativa transformou os alunos do curso Técnico em Agronegócio em verdadeiros pesquisadores e historiadores.</p>
+                    <p>O objetivo principal foi documentar a "história oral" — aqueles saberes que não estão nos livros, mas na memória dos mais velhos. Da produção artesanal de queijo e cachaça aos "causos" de assombração que moldaram a cultura local, tudo foi registrado.</p>
+                    <p>O resultado é um acervo riquíssimo que prova que o Agronegócio não é apenas técnica e produção, mas também gente, cultura e tradição.</p>
+                `
+            },
+            curso: {
+                title: "Sobre o Curso Técnico em Agronegócio",
+                category: "Formação",
+                icon: "graduation-cap",
+                color: "emerald",
+                content: `
+                    <p><strong>Formando profissionais para o campo e para a vida.</strong></p>
+                    <p>O Curso Técnico em Agronegócio da Escola Estadual Dr. Tancredo Neves é referência na região. Com uma grade curricular que une teoria e prática, o curso prepara os alunos para os desafios da agricultura moderna, sem esquecer a importância da agricultura familiar e da sustentabilidade.</p>
+                    <p>Nossos alunos aprendem desde gestão rural e técnicas de cultivo até a valorização do patrimônio cultural do campo. O projeto "Vozes e Memórias" é um exemplo dessa abordagem multidisciplinar, mostrando que entender o passado da terra é essencial para planejar seu futuro.</p>
+                    <p>A escola se orgulha de, desde 1952, contribuir para o desenvolvimento educacional de José Gonçalves de Minas.</p>
+                `
+            }
+        };
+
+        // Dados dos Vídeos
         const videosData = [
-            { id: 'v1', title: 'Histórias do Vale', videoId: 'dQw4w9WgXcQ', thumbnail: 'https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg', duration: '12:30' },
+            { id: 'v1', title: 'Histórias do Vale: A Cultura da Cachaça', videoId: 'dQw4w9WgXcQ', thumbnail: 'https://img.youtube.com/vi/dQw4w9WgXcQ/hqdefault.jpg', duration: '12:30' },
             { id: 'v2', title: 'Memórias da D. Nelcides', videoId: '5qap5aO4i9A', thumbnail: 'https://img.youtube.com/vi/5qap5aO4i9A/hqdefault.jpg', duration: '08:45' },
             { id: 'v3', title: 'Emancipação Política', videoId: 'jfKfPfyJRdk', thumbnail: 'https://img.youtube.com/vi/jfKfPfyJRdk/hqdefault.jpg', duration: '15:20' },
-            { id: 'v4', title: 'Vida na Roça', videoId: '4xDzrJKXOOY', thumbnail: 'https://img.youtube.com/vi/4xDzrJKXOOY/hqdefault.jpg', duration: '10:15' }
+            { id: 'v4', title: 'A Vida na Roça Antigamente', videoId: '4xDzrJKXOOY', thumbnail: 'https://img.youtube.com/vi/4xDzrJKXOOY/hqdefault.jpg', duration: '10:15' }
         ];
 
-        // Lógica de Renderização
-        const postsContainer = document.getElementById('posts-container');
-        const textModal = document.getElementById('modal-backdrop');
-        const textWrapper = document.getElementById('text-modal-content-wrapper');
-        const videoGalleryModal = document.getElementById('video-gallery-modal');
-        const videoGrid = document.getElementById('video-grid');
-        const mainPlayer = document.getElementById('main-player-container');
+        // --- 2. FUNÇÕES DE RENDERIZAÇÃO ---
 
+        // Renderizar os Cards do Blog
         function renderPosts() {
-            postsContainer.innerHTML = '';
+            const container = document.getElementById('posts-container');
+            if (!container) return; // Segurança caso a ID mude
+
             postsData.forEach(post => {
                 const article = document.createElement('div');
                 article.className = `bg-white rounded-xl shadow-lg overflow-hidden border border-stone-200 hover:shadow-xl transition-shadow duration-300 flex flex-col h-full`;
@@ -247,8 +306,12 @@
                     <div class="h-2 bg-${post.color}-600 w-full"></div>
                     <div class="p-6 flex-1 flex flex-col">
                         <div class="flex items-center gap-2 mb-4">
-                            <span class="p-2 rounded-lg bg-${post.color}-100 text-${post.color}-700"><i data-lucide="${post.icon}" width="20" height="20"></i></span>
-                            <span class="text-sm font-semibold text-${post.color}-700 uppercase tracking-wider">${post.category}</span>
+                            <span class="p-2 rounded-lg bg-${post.color}-100 text-${post.color}-700">
+                                <i data-lucide="${post.icon}" width="20" height="20"></i>
+                            </span>
+                            <span class="text-sm font-semibold text-${post.color}-700 uppercase tracking-wider">
+                                ${post.category}
+                            </span>
                         </div>
                         <h3 class="text-2xl font-serif font-bold text-stone-800 mb-3 leading-tight">${post.title}</h3>
                         <p class="text-stone-600 mb-6 line-clamp-3 flex-1">${post.excerpt}</p>
@@ -259,21 +322,52 @@
                         </div>
                     </div>
                 `;
-                postsContainer.appendChild(article);
+                container.appendChild(article);
             });
-            lucide.createIcons();
         }
 
-        // --- LÓGICA ATUALIZADA DO MODAL COM PDF ---
+        // --- 3. LÓGICA DOS MODAIS (JANELAS) ---
+
+        const textModal = document.getElementById('modal-backdrop');
+        const textWrapper = document.getElementById('text-modal-content-wrapper');
+        const videoGalleryModal = document.getElementById('video-gallery-modal');
+        const videoGrid = document.getElementById('video-grid');
+        const mainPlayer = document.getElementById('main-player-container');
+
+        // Função Genérica para fechar qualquer modal
+        function closeModal(modalId) {
+            const el = document.getElementById(modalId);
+            if(el) {
+                el.classList.add('hidden');
+                el.classList.remove('flex');
+            }
+            // Se for vídeo, mata o player pra parar o som
+            if(modalId === 'video-gallery-modal') {
+                mainPlayer.innerHTML = '';
+                mainPlayer.classList.add('hidden');
+            }
+        }
+
+        // Configura botões de fechar
+        document.getElementById('modal-close').addEventListener('click', () => closeModal('modal-backdrop'));
+        
+        // Clicar fora fecha o modal
+        window.onclick = function(event) {
+            if (event.target === textModal) closeModal('modal-backdrop');
+            if (event.target === videoGalleryModal) closeModal('video-gallery-modal');
+        }
+
+        // Abrir Modal de Post (Blog) COM PDF
         function openTextModal(id) {
             const post = postsData.find(p => p.id === id);
             if(!post) return;
 
-            // Gera o HTML do conteúdo
             let contentHTML = `
                 <div class="flex items-center gap-3 mb-6">
-                   <span class="p-2 rounded-lg bg-${post.color}-100 text-${post.color}-700"><i data-lucide="${post.icon}" width="24" height="24"></i></span>
-                   <span class="font-semibold text-${post.color}-700 uppercase tracking-wider">${post.category}</span>
+                   <span class="p-2 rounded-lg bg-${post.color}-100 text-${post.color}-700">
+                    <i data-lucide="${post.icon}" width="24" height="24"></i>
+                  </span>
+                  <span class="font-semibold text-${post.color}-700 uppercase tracking-wider">${post.category}</span>
                 </div>
                 <h2 class="text-3xl md:text-4xl font-serif font-bold text-stone-900 mb-6">${post.title}</h2>
                 <div class="prose prose-stone prose-lg max-w-none font-serif text-stone-700 leading-relaxed space-y-4 mb-8">
@@ -281,7 +375,7 @@
                 </div>
             `;
 
-            // SE TIVER PDF, ADICIONA O VISUALIZADOR
+            // Lógica do PDF
             if (post.pdfUrl) {
                 contentHTML += `
                     <div class="mt-8 border-t border-stone-200 pt-6">
@@ -295,13 +389,13 @@
                         </div>
 
                         <!-- Iframe para Desktop -->
-                        <div class="w-full h-[500px] bg-stone-100 rounded-lg border border-stone-300 overflow-hidden mb-4">
+                        <div class="w-full h-[500px] bg-stone-100 rounded-lg border border-stone-300 overflow-hidden mb-4 hidden md:block">
                             <iframe src="${post.pdfUrl}" width="100%" height="100%" class="w-full h-full">
                                 <p>Seu navegador não suporta PDFs.</p>
                             </iframe>
                         </div>
 
-                        <!-- Botão de Download Obrigatório para Compatibilidade -->
+                        <!-- Botão de Download (Funciona em todos) -->
                         <a href="${post.pdfUrl}" target="_blank" class="inline-flex items-center gap-2 px-6 py-3 bg-stone-800 text-white rounded-lg hover:bg-stone-700 transition-colors font-medium">
                             <i data-lucide="download"></i> Baixar ou Abrir PDF em nova aba
                         </a>
@@ -321,52 +415,94 @@
             lucide.createIcons();
         }
 
-        // Modal Estático
+        // NOVO: Abrir Modal de Conteúdo Estático (Projeto / Curso)
         function openStaticModal(type) {
             const data = staticContent[type];
+            if(!data) return;
+
             textWrapper.innerHTML = `
                 <div class="flex items-center gap-3 mb-6">
-                   <span class="p-2 rounded-lg bg-${data.color}-100 text-${data.color}-700"><i data-lucide="${data.icon}" width="24" height="24"></i></span>
-                   <span class="font-semibold text-${data.color}-700 uppercase tracking-wider">${data.category}</span>
+                   <span class="p-2 rounded-lg bg-${data.color}-100 text-${data.color}-700">
+                    <i data-lucide="${data.icon}" width="24" height="24"></i>
+                  </span>
+                  <span class="font-semibold text-${data.color}-700 uppercase tracking-wider">${data.category}</span>
                 </div>
                 <h2 class="text-3xl md:text-4xl font-serif font-bold text-stone-900 mb-6">${data.title}</h2>
-                <div class="prose prose-stone prose-lg max-w-none font-serif text-stone-700 leading-relaxed space-y-4">${data.content}</div>
+                <div class="prose prose-stone prose-lg max-w-none font-serif text-stone-700 leading-relaxed space-y-4">
+                    ${data.content}
+                </div>
             `;
-            textModal.classList.remove('hidden'); textModal.classList.add('flex'); lucide.createIcons();
+
+            textModal.classList.remove('hidden');
+            textModal.classList.add('flex');
+            lucide.createIcons();
         }
 
-        // Funções de Fechar Modal
-        function closeModal(modalId) {
-            const el = document.getElementById(modalId);
-            if(el) { el.classList.add('hidden'); el.classList.remove('flex'); }
-            if(modalId === 'video-gallery-modal') { mainPlayer.innerHTML = ''; mainPlayer.classList.add('hidden'); }
-        }
-        document.getElementById('modal-close').addEventListener('click', () => closeModal('modal-backdrop'));
-        window.onclick = function(event) {
-            if (event.target === textModal) closeModal('modal-backdrop');
-            if (event.target === videoGalleryModal) closeModal('video-gallery-modal');
+        // --- 4. LÓGICA DE VÍDEOS ---
+
+        function openVideoGallery() {
+            renderVideoGrid();
+            videoGalleryModal.classList.remove('hidden');
+            videoGalleryModal.classList.add('flex');
+            mainPlayer.innerHTML = ''; 
+            mainPlayer.classList.add('hidden');
         }
 
-        // Funções de Vídeo
-        function openVideoGallery() { renderVideoGrid(); videoGalleryModal.classList.remove('hidden'); videoGalleryModal.classList.add('flex'); mainPlayer.innerHTML = ''; mainPlayer.classList.add('hidden'); }
-        function closeVideoGallery() { closeModal('video-gallery-modal'); }
+        function closeVideoGallery() {
+            closeModal('video-gallery-modal');
+        }
+
         function renderVideoGrid() {
             videoGrid.innerHTML = '';
             videosData.forEach(video => {
                 const card = document.createElement('div');
                 card.className = "video-card bg-stone-800 rounded-lg overflow-hidden cursor-pointer group shadow-lg border border-stone-700 hover:border-amber-500 transition-all";
                 card.onclick = () => playVideo(video.videoId, video.title);
-                card.innerHTML = `<div class="relative w-full aspect-video bg-black"><img src="${video.thumbnail}" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"><div class="play-overlay absolute inset-0 flex items-center justify-center"><div class="play-icon w-12 h-12 bg-black/60 rounded-full flex items-center justify-center text-white backdrop-blur-sm border border-white/20 transition-transform"><i data-lucide="play" width="20" height="20" fill="white"></i></div></div><span class="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-2 py-1 rounded font-medium">${video.duration}</span></div><div class="p-3"><h4 class="text-stone-100 font-medium text-sm line-clamp-2 leading-snug group-hover:text-amber-400 transition-colors">${video.title}</h4></div>`;
+                
+                card.innerHTML = `
+                    <div class="relative w-full aspect-video bg-black">
+                        <img src="${video.thumbnail}" alt="${video.title}" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity">
+                        <div class="play-overlay absolute inset-0 flex items-center justify-center">
+                            <div class="play-icon w-12 h-12 bg-black/60 rounded-full flex items-center justify-center text-white backdrop-blur-sm border border-white/20 transition-transform">
+                                <i data-lucide="play" width="20" height="20" fill="white"></i>
+                            </div>
+                        </div>
+                        <span class="absolute bottom-2 right-2 bg-black/80 text-white text-xs px-2 py-1 rounded font-medium">${video.duration}</span>
+                    </div>
+                    <div class="p-3">
+                        <h4 class="text-stone-100 font-medium text-sm line-clamp-2 leading-snug group-hover:text-amber-400 transition-colors">${video.title}</h4>
+                    </div>
+                `;
                 videoGrid.appendChild(card);
             });
             lucide.createIcons();
         }
+
         function playVideo(videoId, title) {
-            mainPlayer.classList.remove('hidden'); mainPlayer.scrollIntoView({ behavior: 'smooth' });
-            mainPlayer.innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0" title="${title}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+            mainPlayer.classList.remove('hidden');
+            mainPlayer.scrollIntoView({ behavior: 'smooth' });
+            
+            mainPlayer.innerHTML = `
+                <iframe 
+                    width="100%" 
+                    height="100%" 
+                    src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0" 
+                    title="${title}" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            `;
         }
 
-        document.addEventListener('DOMContentLoaded', () => { renderPosts(); lucide.createIcons(); });
+        // Inicialização quando a página carrega
+        document.addEventListener('DOMContentLoaded', () => {
+            renderPosts();
+            lucide.createIcons();
+        });
+
     </script>
+    <!-- ================= FIM DO JAVASCRIPT ================= -->
+
 </body>
 </html>
