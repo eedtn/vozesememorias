@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vozes e Memórias - E. E. Dr. Tancredo Neves</title>
+    
+    <!-- Tailwind CSS (Via CDN para funcionar direto) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Fonte Serifada para dar o tom de "Memória" -->
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['Merriweather', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        stone: {
+                            50: '#fafaf9',
+                            100: '#f5f5f4',
+                            200: '#e7e5e4',
+                            300: '#d6d3d1',
+                            400: '#a8a29e',
+                            500: '#78716c',
+                            600: '#57534e',
+                            700: '#44403c',
+                            800: '#292524',
+                            900: '#1c1917',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* CSS Customizado - Se fosse um arquivo separado, estaria no style.css */
+        body {
+            background-color: #fdfbf7; /* Cor de papel antigo suave */
+        }
+        
+        .line-clamp-3 {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Animações suaves */
+        .fade-in {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Estilo da barra de rolagem do modal */
+        .modal-scroll::-webkit-scrollbar {
+            width: 8px;
+        }
+        .modal-scroll::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+        .modal-scroll::-webkit-scrollbar-thumb {
+            background: #d6d3d1;
+            border-radius: 4px;
+        }
+        .modal-scroll::-webkit-scrollbar-thumb:hover {
+            background: #a8a29e;
+        }
+    </style>
+</head>
+<body class="font-sans text-stone-800 antialiased">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-stone-200 shadow-sm">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="bg-amber-600 text-white p-2 rounded-lg">
+                    <i data-lucide="book-open" width="24" height="24"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl md:text-2xl font-serif font-bold text-stone-900 tracking-tight">Vozes e Memórias</h1>
+                    <p class="text-xs text-stone-500 uppercase tracking-widest hidden md:block">E. E. Dr. Tancredo Neves</p>
+                </div>
+            </div>
+            
+            <nav class="hidden md:flex items-center gap-8 font-medium text-stone-600">
+                <a href="#" class="hover:text-amber-600 transition-colors">Início</a>
+                <a href="#" class="hover:text-amber-600 transition-colors">O Projeto</a>
+                <a href="#" class="hover:text-amber-600 transition-colors">Documentários</a>
+                <a href="#" class="px-4 py-2 bg-amber-600 text-white rounded-full hover:bg-amber-700 transition-colors shadow-md">
+                    Contato
+                </a>
+            </nav>
+
+            <button id="menu-btn" class="md:hidden text-stone-600">
+                <i data-lucide="menu" width="28" height="28"></i>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-stone-100 p-4 shadow-lg absolute w-full">
+            <nav class="flex flex-col gap-4 text-center">
+                <a href="#" class="py-2 hover:bg-stone-50 rounded-lg">Início</a>
+                <a href="#" class="py-2 hover:bg-stone-50 rounded-lg">O Projeto</a>
+                <a href="#" class="py-2 hover:bg-stone-50 rounded-lg">Documentários</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative bg-stone-900 text-white py-20 md:py-32 overflow-hidden">
+        <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-stone-900 via-transparent to-transparent"></div>
+        
+        <div class="container mx-auto px-4 relative z-10 text-center max-w-4xl">
+            <span class="inline-block py-1 px-3 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 text-sm font-semibold mb-6 uppercase tracking-wider">
+                Técnico em Agronegócio
+            </span>
+            <span2 class="inline-block py-1 px-3 rounded-full bg-amber-500/20 border border-amber-500/40 text-amber-300 text-sm font-semibold mb-6 uppercase tracking-wider">
+                Técnico em Desenvolvimento de Sistema
+            </span2>
+            <h2 class="text-4xl md:text-6xl font-serif font-bold mb-6 leading-tight">
+                Raízes que contam histórias,<br />memórias que plantam o futuro.
+            </h2>
+            <p class="text-lg md:text-xl text-stone-300 leading-relaxed mb-10 max-w-2xl mx-auto">
+                Os alunos da E. E. Dr. Tancredo Neves mergulharam nas raízes culturais de José Gonçalves de Minas. Da cachaça ao queijo, da rapadura aos costumes locais, cada cena valoriza o que somos.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button class="px-8 py-4 bg-amber-600 rounded-lg font-bold text-lg hover:bg-amber-700 transition-transform transform hover:scale-105 shadow-lg shadow-amber-900/50">
+                    Ver Documentários
+                </button>
+                <button class="px-8 py-4 bg-transparent border border-stone-500 rounded-lg font-bold text-lg hover:bg-white/10 transition-colors">
+                    Sobre o Curso
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content / Blog Grid -->
+    <main class="container mx-auto px-4 py-16">
+        <div class="flex items-end justify-between mb-12 border-b border-stone-200 pb-4">
+            <div>
+                <h3 class="text-3xl font-serif font-bold text-stone-800">Últimas Memórias</h3>
+                <p class="text-stone-500 mt-2">Histórias, saberes e tradições resgatadas pelos alunos.</p>
+            </div>
+            <div class="hidden md:flex gap-2 text-stone-400 text-sm">
+                <span>#VozesEMemórias</span>
+                <span>•</span>
+                <span>#CulturaViva</span>
+                <span>•</span>
+                <span>#Agronegócio</span>
+            </div>
+        </div>
+
+        <!-- Container onde os posts serão injetados via JS -->
+        <div id="posts-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Posts serão renderizados aqui -->
+        </div>
+    </main>
+
+    <!-- Quote Section -->
+    <section class="bg-amber-900 text-amber-50 py-16">
+        <div class="container mx-auto px-4 text-center max-w-3xl">
+            <div class="flex justify-center mb-6 opacity-50">
+                <i data-lucide="share-2" width="40" height="40"></i>
+            </div>
+            <blockquote class="text-2xl md:text-3xl font-serif italic leading-relaxed mb-6">
+                "Uma parceria entre a Educação e Cultura, celebrando a força da nossa identidade."
+            </blockquote>
+            <cite class="not-italic font-semibold tracking-wider text-amber-200/80">
+                — Projeto Vozes e Memórias
+            </cite>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-stone-900 text-stone-400 py-12 border-t border-stone-800">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h4 class="text-white font-bold mb-4 flex items-center gap-2">
+                        <i data-lucide="book-open" width="20" height="20" class="text-amber-600"></i>
+                        E. E. Dr. Tancredo Neves
+                    </h4>
+                    <p class="text-sm leading-relaxed">
+                        Formando cidadãos e preservando a história de José Gonçalves de Minas através da educação e da cultura.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Tags do Projeto</h4>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-stone-800 text-xs px-2 py-1 rounded hover:text-white cursor-pointer transition-colors">#VozesEMemórias</span>
+                        <span class="bg-stone-800 text-xs px-2 py-1 rounded hover:text-white cursor-pointer transition-colors">#CulturaViva</span>
+                        <span class="bg-stone-800 text-xs px-2 py-1 rounded hover:text-white cursor-pointer transition-colors">#Agronegócio</span>
+                        <span class="bg-stone-800 text-xs px-2 py-1 rounded hover:text-white cursor-pointer transition-colors">#HistóriaOral</span>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold mb-4">Contato</h4>
+                    <p class="text-sm">José Gonçalves de Minas - MG</p>
+        <a href="https://instagram.com/segundaoo_2025" target="_blank" class="flex items-center gap-3 px-6 py-3 bg-gray-900 text-white rounded-lg font-medium hover:bg-black transition-colors duration-300">
+        <!-- Ícone SVG -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+        </svg>
+        <span>Instagram</span>
+    </a>
+        </div>
+                    <p class="text-sm mt-2"></p>
+                </div>
+            </div>
+            <div class="text-center pt-8 border-t border-stone-800 text-xs">
+                <p>&copy; 2025 Projeto Vozes e Memórias. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal Template (Hidden) -->
+    <div id="modal-backdrop" class="fixed inset-0 bg-black/60 z-50 hidden items-center justify-center p-4 backdrop-blur-sm fade-in">
+        <div class="bg-[#fdfbf7] rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto modal-scroll shadow-2xl relative">
+            <button id="modal-close" class="absolute top-4 right-4 p-2 bg-stone-200 rounded-full hover:bg-stone-300 transition-colors text-stone-700">
+                <i data-lucide="x" width="20" height="20"></i>
+            </button>
+            
+            <div class="p-8 md:p-12">
+                <div class="flex items-center gap-3 mb-6">
+                   <span id="modal-icon-bg" class="p-2 rounded-lg bg-purple-100 text-purple-700">
+                    <i id="modal-icon" data-lucide="ghost" width="24" height="24"></i>
+                  </span>
+                  <span id="modal-category" class="font-semibold text-purple-700 uppercase tracking-wider">
+                    Categoria
+                  </span>
+                </div>
+                
+                <h2 id="modal-title" class="text-3xl md:text-4xl font-serif font-bold text-stone-900 mb-6">
+                  Título do Post
+                </h2>
+                
+                <div id="modal-content" class="prose prose-stone prose-lg max-w-none font-serif text-stone-700 leading-relaxed space-y-4">
+                  <!-- Conteúdo dinâmico -->
+                </div>
+                
+                <div class="mt-8 pt-8 border-t border-stone-200">
+                  <p class="text-sm text-stone-500 italic">
+                    Fonte: Projeto Vozes e Memórias - Relatos orais coletados pelos alunos.
+                  </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript (Lógica do Site) -->
+    <script>
+        // Dados dos Posts
+        const postsData = [
+            {
+                id: 1,
+                title: "Mulher da blusa branca e saia preta",
+                category: "Lendas do valle",
+                excerpt: "Nas margens do rio ou na escuridão da quaresma, as histórias de assombração moldaram o comportamento de uma geração.",
+                content: `
+                <embed src="MEMORIAS.pdf" width="600" height="400">`,
+                author: "Relato de D. Nelcides",
+                date: "Nov. 2025",
+                icon: "ghost",
+                color: "purple"
+            },
+            {
+                id: 2,
+                title: "Camas de Couro e Salada de Mato: A Vida na Roça",
+                category: "Raízes Rurais",
+                excerpt: "Sr. Antônio Lago relembra os tempos difíceis, mas felizes, onde o trabalho era coletivo e a diversão era garantida.",
+                content: `A vida no campo antigamente era 'da água para o vinho' comparada a hoje, conta Sr. Antônio. Na Fazenda Lago, a comunidade era unida: para derrubar mato ou colher, juntavam-se até 50 pessoas num mutirão cantante. O pagamento? Muitas vezes alimento e a gratidão.
+                
+                Não havia luxo. Dormia-se em 'catres' (camas de couro de boi) ou em camas improvisadas com varas. E quando a fome apertava ou a mistura faltava? A solução estava na natureza: faziam a 'ganhaçaia', uma salada de mato temperada, ou usavam a berduega.
+                
+                Mas também havia muita alegria. As festas tinham violão, sanfona e prato batendo no ritmo. Comia-se bolo de folha, biscoitos e bebia-se a 'queimadinha' (pinga com rapadura). 'O povo não tinha violência... as pessoas respeitavam umas às outras', relembra ele com saudade.
+            
+            k
+            k
+            k
+            k
+            k
+            k
+            k
+            k
+            k
+            k
+            kk
+                `,
+                author: "Relato de Sr. Antônio",
+                date: "04 Dez 2024",
+                icon: "sun",
+                color: "amber"
+            },
+            {
+                id: 3,
+                title: "A Luta pela Emancipação e o Papel da Escola",
+                category: "Nossa História",
+                excerpt: "Como José Gonçalves de Minas deixou de ser distrito de Berilo para se tornar um 'pedacinho do céu' independente.",
+                content: `A identidade de um povo também se faz na política e na educação. Dona Daci, filha do primeiro tabelião da cidade, relembra com orgulho a luta pela emancipação. José Gonçalves de Minas era distrito de Berilo, mas o desejo de independência falou mais alto.
+                
+                Em 22 de dezembro de 1995, após um plebiscito onde o 'Sim' venceu, a cidade nasceu oficialmente. 'José Gonçalves de Minas é um pedacinho do céu para nós', declara ela.
+                
+                E essa história se cruza com a da E. E. Dr. Tancredo Neves. A professora Dulce conta que a escola, autorizada a funcionar desde 1952 e com ensino médio implantado em 1998, foi por muito tempo a única fonte de educação básica da região. Por lá passaram gerações que hoje constroem o futuro do município.`,
+                author: "Relato de D. Daci & Dulce",
+                date: "04 Dez 2024",
+                icon: "map-pin",
+                color: "emerald"
+            }
+        ];
+
+        // Elementos DOM
+        const postsContainer = document.getElementById('posts-container');
+        const modal = document.getElementById('modal-backdrop');
+        const modalCloseBtn = document.getElementById('modal-close');
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        // Renderizar Posts
+        function renderPosts() {
+            postsData.forEach(post => {
+                const article = document.createElement('div');
+                article.className = `bg-white rounded-xl shadow-lg overflow-hidden border border-stone-200 hover:shadow-xl transition-shadow duration-300 flex flex-col h-full`;
+                article.innerHTML = `
+                    <div class="h-2 bg-${post.color}-600 w-full"></div>
+                    <div class="p-6 flex-1 flex flex-col">
+                        <div class="flex items-center gap-2 mb-4">
+                            <span class="p-2 rounded-lg bg-${post.color}-100 text-${post.color}-700">
+                                <i data-lucide="${post.icon}" width="20" height="20"></i>
+                            </span>
+                            <span class="text-sm font-semibold text-${post.color}-700 uppercase tracking-wider">
+                                ${post.category}
+                            </span>
+                        </div>
+                        
+                        <h3 class="text-2xl font-serif font-bold text-stone-800 mb-3 leading-tight">
+                            ${post.title}
+                        </h3>
+                        
+                        <p class="text-stone-600 mb-6 line-clamp-3 flex-1">
+                            ${post.excerpt}
+                        </p>
+                        
+                        <div class="mt-auto">
+                            <div class="flex items-center justify-between text-sm text-stone-500 mb-4 border-t border-stone-100 pt-4">
+                                <div class="flex items-center gap-1">
+                                    <i data-lucide="user" width="14" height="14"></i>
+                                    <span>${post.author}</span>
+                                </div>
+                                <div class="flex items-center gap-1">
+                                    <i data-lucide="calendar" width="14" height="14"></i>
+                                    <span>${post.date}</span>
+                                </div>
+                            </div>
+                            
+                            <button onclick="openModal(${post.id})" class="w-full py-2 px-4 rounded-lg bg-${post.color}-50 text-${post.color}-700 font-medium hover:bg-${post.color}-100 transition-colors flex items-center justify-center gap-2">
+                                Ler história completa <i data-lucide="chevron-right" width="16" height="16"></i>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                postsContainer.appendChild(article);
+            });
+        }
+
+        // Abrir Modal
+        window.openModal = function(id) {
+            const post = postsData.find(p => p.id === id);
+            if (!post) return;
+
+            // Preencher dados do modal
+            document.getElementById('modal-title').innerText = post.title;
+            document.getElementById('modal-category').innerText = post.category;
+            
+            // Ajustar cores dinamicamente
+            const iconBg = document.getElementById('modal-icon-bg');
+            iconBg.className = `p-2 rounded-lg bg-${post.color}-100 text-${post.color}-700`;
+            
+            const categoryText = document.getElementById('modal-category');
+            categoryText.className = `font-semibold text-${post.color}-700 uppercase tracking-wider`;
+
+            // Ícone dinâmico
+            const iconElement = document.getElementById('modal-icon');
+            iconElement.setAttribute('data-lucide', post.icon);
+
+            // Conteúdo (quebra de linha)
+            const contentContainer = document.getElementById('modal-content');
+            contentContainer.innerHTML = post.content.split('\n').map(p => `<p>${p}</p>`).join('');
+
+            // Mostrar modal
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            
+            // Recarregar ícones dentro do modal
+            lucide.createIcons();
+        };
+
+        // Fechar Modal
+        modalCloseBtn.addEventListener('click', () => {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        });
+
+        // Fechar modal clicando fora
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }
+        });
+
+        // Toggle Menu Mobile
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', () => {
+            renderPosts();
+            lucide.createIcons(); // Renderizar ícones Lucide
+        });
+
+    </script>
+</body>
+</html>
