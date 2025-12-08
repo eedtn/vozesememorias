@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vozes e Memórias - E. E. Dr. Tancredo Neves</title>
     
-    <!-- Bibliotecas Externas (Tailwind CSS, Fontes, Ícones) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- Configuração do Tailwind -->
+    <!-- Configuração do Tailwind (CORRIGIDA) -->
     <script>
         tailwind.config = {
             theme: {
@@ -28,11 +27,10 @@
             }
         }
     </script>
-    <!-- CABEÇALHO (MENU) -->
+
+    <!-- CABEÇALHO -->
     <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-stone-200 shadow-sm transition-all duration-300">
         <div class="container mx-auto px-4 py-3 md:py-4 flex justify-between items-center">
-            
-            <!-- Logo e Título -->
             <div class="flex items-center gap-2 md:gap-3">
                 <div class="bg-amber-600 text-white p-1.5 md:p-2 rounded-lg shadow-sm">
                     <i data-lucide="book-open" class="w-5 h-5 md:w-6 md:h-6"></i>
@@ -42,24 +40,14 @@
                     <p class="text-[10px] md:text-xs text-stone-500 uppercase tracking-widest hidden sm:block">E. E. Dr. Tancredo Neves</p>
                 </div>
             </div>
-            
-            <!-- Menu Desktop -->
             <nav class="hidden md:flex items-center gap-8 font-medium text-sm text-stone-600">
                 <a href="#" class="hover:text-amber-600 transition-colors">Início</a>
                 <button onclick="openStaticModal('projeto')" class="hover:text-amber-600 transition-colors">O Projeto</button>
                 <button onclick="openVideoGallery()" class="hover:text-amber-600 transition-colors">Documentários</button>
-                <a href="#contato" class="px-5 py-2 bg-amber-600 text-white rounded-full hover:bg-amber-700 transition-all hover:shadow-md transform hover:-translate-y-0.5">
-                    Contato
-                </a>
+                <a href="#contato" class="px-5 py-2 bg-amber-600 text-white rounded-full hover:bg-amber-700 transition-all hover:shadow-md transform hover:-translate-y-0.5">Contato</a>
             </nav>
-
-            <!-- Botão Menu Mobile -->
-            <button id="menu-btn" class="md:hidden p-2 text-stone-600 hover:bg-stone-100 rounded-lg transition-colors">
-                <i data-lucide="menu" width="24" height="24"></i>
-            </button>
+            <button id="menu-btn" class="md:hidden p-2 text-stone-600 hover:bg-stone-100 rounded-lg transition-colors"><i data-lucide="menu" width="24" height="24"></i></button>
         </div>
-
-        <!-- Menu Mobile (Gaveta) -->
         <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white border-b border-stone-200 shadow-lg py-4 px-4 flex-col gap-2 fade-in">
             <a href="#" class="block py-3 px-4 rounded-lg hover:bg-stone-50 font-medium text-stone-700">Início</a>
             <button onclick="openStaticModal('projeto'); toggleMobileMenu()" class="block w-full text-left py-3 px-4 rounded-lg hover:bg-stone-50 font-medium text-stone-700">O Projeto</button>
@@ -68,41 +56,21 @@
         </div>
     </header>
 
-    <!-- HERO SECTION (BANNER PRINCIPAL) -->
+    <!-- HERO SECTION -->
     <section class="relative bg-stone-900 text-white py-16 md:py-32 overflow-hidden">
         <div class="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
         <div class="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-900/90 to-transparent"></div>
-        
         <div class="container mx-auto px-4 relative z-10 text-center max-w-4xl flex flex-col items-center">
-            
-            <!-- Tags -->
             <div class="flex flex-wrap justify-center gap-2 mb-6 md:mb-8">
-                <span class="inline-block py-1 px-3 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-[10px] md:text-sm font-semibold uppercase tracking-wider backdrop-blur-sm">
-                    Técnico em Agronegócio
-                </span>
-                <span class="inline-block py-1 px-3 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-[10px] md:text-sm font-semibold uppercase tracking-wider backdrop-blur-sm">
-                    Técnico em Desenvolvimento de Sistemas
-                </span>
+                <span class="inline-block py-1 px-3 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-[10px] md:text-sm font-semibold uppercase tracking-wider backdrop-blur-sm">Técnico em Agronegócio</span>
+                <!-- Corrigido de span2 para span -->
+                <span class="inline-block py-1 px-3 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-300 text-[10px] md:text-sm font-semibold uppercase tracking-wider backdrop-blur-sm">Técnico em Desenvolvimento de Sistemas</span>
             </div>
-
-            <!-- Título Responsivo -->
-            <h2 class="text-3xl sm:text-4xl md:text-6xl font-serif font-bold mb-4 md:mb-6 leading-tight tracking-tight">
-                Raízes que contam <span class="text-amber-500">histórias</span>,<br />
-                memórias que plantam o <span class="text-emerald-400">futuro</span>.
-            </h2>
-            
-            <p class="text-base md:text-xl text-stone-300 leading-relaxed mb-8 md:mb-10 max-w-2xl mx-auto px-2">
-                Os alunos da E. E. Dr. Tancredo Neves mergulharam nas raízes culturais de José Gonçalves de Minas. Da cachaça ao queijo, da rapadura aos costumes locais, cada cena valoriza o que somos.
-            </p>
-            
-            <!-- Botões Responsivos -->
+            <h2 class="text-3xl sm:text-4xl md:text-6xl font-serif font-bold mb-4 md:mb-6 leading-tight tracking-tight">Raízes que contam <span class="text-amber-500">histórias</span>,<br />memórias que plantam o <span class="text-emerald-400">futuro</span>.</h2>
+            <p class="text-base md:text-xl text-stone-300 leading-relaxed mb-8 md:mb-10 max-w-2xl mx-auto px-2">Os alunos da E. E. Dr. Tancredo Neves mergulharam nas raízes culturais de José Gonçalves de Minas. Da cachaça ao queijo, da rapadura aos costumes locais, cada cena valoriza o que somos.</p>
             <div class="w-full max-w-sm md:max-w-none flex flex-col md:flex-row gap-3 md:gap-4 justify-center">
-                <button onclick="openVideoGallery()" class="w-full md:w-auto px-8 py-3.5 bg-amber-600 rounded-lg font-bold text-base md:text-lg hover:bg-amber-700 transition-all transform active:scale-95 shadow-lg shadow-amber-900/50 flex items-center justify-center gap-2">
-                    <i data-lucide="play-circle" width="20" height="20"></i> Ver Documentários
-                </button>
-                <button onclick="openStaticModal('curso')" class="w-full md:w-auto px-8 py-3.5 bg-white/5 border border-white/20 rounded-lg font-bold text-base md:text-lg hover:bg-white/10 transition-colors backdrop-blur-sm">
-                    Sobre o Curso
-                </button>
+                <button onclick="openVideoGallery()" class="w-full md:w-auto px-8 py-3.5 bg-amber-600 rounded-lg font-bold text-base md:text-lg hover:bg-amber-700 transition-all transform active:scale-95 shadow-lg shadow-amber-900/50 flex items-center justify-center gap-2"><i data-lucide="play-circle" width="20" height="20"></i> Ver Documentários</button>
+                <button onclick="openStaticModal('curso')" class="w-full md:w-auto px-8 py-3.5 bg-white/5 border border-white/20 rounded-lg font-bold text-base md:text-lg hover:bg-white/10 transition-colors backdrop-blur-sm">Sobre o Curso</button>
             </div>
         </div>
     </section>
@@ -119,19 +87,14 @@
                 <span class="bg-stone-100 px-2 py-1 rounded">#CulturaViva</span>
             </div>
         </div>
-
-        <div id="posts-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-            <!-- Cards via JS -->
-        </div>
+        <div id="posts-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"></div>
     </main>
 
     <!-- CITAÇÃO -->
     <section class="bg-amber-900 text-amber-50 py-12 md:py-16 border-t border-amber-800">
         <div class="container mx-auto px-4 text-center max-w-3xl">
             <div class="flex justify-center mb-6 opacity-50"><i data-lucide="share-2" width="32" height="32"></i></div>
-            <blockquote class="text-xl md:text-3xl font-serif italic leading-relaxed mb-6 px-4">
-                "Uma parceria entre a Educação e Cultura, celebrando a força da nossa identidade."
-            </blockquote>
+            <blockquote class="text-xl md:text-3xl font-serif italic leading-relaxed mb-6 px-4">"Uma parceria entre a Educação e Cultura, celebrando a força da nossa identidade."</blockquote>
             <cite class="not-italic font-semibold tracking-wider text-amber-200/80 text-sm md:text-base">— Projeto Vozes e Memórias</cite>
         </div>
     </section>
@@ -141,12 +104,8 @@
         <div class="container mx-auto px-4">
             <div class="grid md:grid-cols-3 gap-8 md:gap-12 mb-12">
                 <div>
-                    <h4 class="text-white font-bold mb-4 flex items-center gap-2">
-                        <i data-lucide="book-open" width="20" height="20" class="text-amber-600"></i> E. E. Dr. Tancredo Neves
-                    </h4>
-                    <p class="text-sm leading-relaxed text-stone-400">
-                        Formando cidadãos e preservando a história de José Gonçalves de Minas através da educação e da cultura.
-                    </p>
+                    <h4 class="text-white font-bold mb-4 flex items-center gap-2"><i data-lucide="book-open" width="20" height="20" class="text-amber-600"></i> E. E. Dr. Tancredo Neves</h4>
+                    <p class="text-sm leading-relaxed text-stone-400">Formando cidadãos e preservando a história de José Gonçalves de Minas através da educação e da cultura.</p>
                 </div>
                 <div>
                     <h4 class="text-white font-bold mb-4">Tags do Projeto</h4>
@@ -160,9 +119,7 @@
                     <h4 class="text-white font-bold mb-4">Contato</h4>
                     <div class="space-y-3 text-sm text-stone-400">
                         <p class="flex items-center gap-2"><i data-lucide="map-pin" width="16" height="16"></i> José Gonçalves de Minas - MG</p>
-                        <a href="https://instagram.com/segundaoo_2025" target="_blank" class="inline-flex items-center gap-2 text-amber-600 hover:text-amber-500 transition-colors bg-stone-800/50 px-3 py-2 rounded-lg w-full md:w-auto justify-center md:justify-start">
-                            <i data-lucide="instagram" width="16" height="16"></i> Siga no Instagram
-                        </a>
+                        <a href="https://instagram.com/segundaoo_2025" target="_blank" class="inline-flex items-center gap-2 text-amber-600 hover:text-amber-500 transition-colors bg-stone-800/50 px-3 py-2 rounded-lg w-full md:w-auto justify-center md:justify-start"><i data-lucide="instagram" width="16" height="16"></i> Siga no Instagram</a>
                     </div>
                 </div>
             </div>
@@ -173,167 +130,104 @@
         </div>
     </footer>
 
-    <!-- MODAL 1: TEXTO & PDF (AJUSTADO PARA MOBILE) -->
-    <!-- Mudança: z-index alto, fundo fixo, alinhamento flexível -->
+    <!-- MODAIS -->
     <div id="modal-backdrop" class="fixed inset-0 bg-stone-900/90 z-[60] hidden flex-col justify-end md:justify-center p-0 md:p-4 backdrop-blur-sm fade-in transition-all">
-        <!-- Mudança: Altura quase total no mobile (h-[95vh]), bordas arredondadas só em cima no mobile -->
         <div class="bg-[#fdfbf7] w-full max-w-2xl h-[95vh] md:h-auto md:max-h-[90vh] rounded-t-2xl md:rounded-xl shadow-2xl relative flex flex-col overflow-hidden">
-            
-            <!-- Barra de Título Fixa do Modal -->
             <div class="flex-none bg-white border-b border-stone-100 p-4 flex items-center justify-between sticky top-0 z-10">
-                <span class="text-xs font-bold text-stone-400 uppercase tracking-widest flex items-center gap-1">
-                    <i data-lucide="book-open" width="14"></i> Leitura
-                </span>
-                <button id="modal-close" class="p-2 -mr-2 text-stone-500 hover:text-stone-800 hover:bg-stone-100 rounded-full transition-colors">
-                    <i data-lucide="x" width="24" height="24"></i>
-                </button>
+                <span class="text-xs font-bold text-stone-400 uppercase tracking-widest flex items-center gap-1"><i data-lucide="book-open" width="14"></i> Leitura</span>
+                <button id="modal-close" class="p-2 -mr-2 text-stone-500 hover:text-stone-800 hover:bg-stone-100 rounded-full transition-colors"><i data-lucide="x" width="24" height="24"></i></button>
             </div>
-
-            <!-- Conteúdo com Scroll -->
-            <div class="flex-1 overflow-y-auto custom-scroll p-6 md:p-10" id="text-modal-content-wrapper">
-                <!-- Conteúdo entra aqui -->
-            </div>
-            
-            <!-- Botão fechar extra no fundo para mobile -->
+            <div class="flex-1 overflow-y-auto custom-scroll p-6 md:p-10" id="text-modal-content-wrapper"></div>
             <div class="md:hidden p-4 border-t border-stone-100 bg-white sticky bottom-0 z-10">
                 <button onclick="closeModal('modal-backdrop')" class="w-full py-3 bg-stone-100 text-stone-600 font-bold rounded-lg">Fechar</button>
             </div>
         </div>
     </div>
 
-    <!-- MODAL 2: VÍDEOS (AJUSTADO PARA MOBILE) -->
     <div id="video-gallery-modal" class="fixed inset-0 bg-black z-[60] hidden flex-col p-0 md:p-4 fade-in">
-        <!-- Header do Modal de Vídeo -->
         <div class="flex-none bg-stone-900 p-4 flex justify-between items-center border-b border-stone-800">
-             <div>
-                <h2 class="text-base md:text-xl font-serif font-bold text-white">Documentários</h2>
-                <p class="text-xs text-stone-400">Toque para assistir</p>
-            </div>
-            <button onclick="closeVideoGallery()" class="p-2 bg-stone-800 rounded-full text-white hover:bg-stone-700">
-                <i data-lucide="x" width="24" height="24"></i>
-            </button>
+             <div><h2 class="text-base md:text-xl font-serif font-bold text-white">Documentários</h2><p class="text-xs text-stone-400">Toque para assistir</p></div>
+            <button onclick="closeVideoGallery()" class="p-2 bg-stone-800 rounded-full text-white hover:bg-stone-700"><i data-lucide="x" width="24" height="24"></i></button>
         </div>
-
-        <!-- Área de Scroll -->
         <div class="flex-1 overflow-y-auto custom-scroll bg-stone-950 p-4">
             <div class="max-w-6xl mx-auto">
-                <!-- Player -->
                 <div id="main-player-container" class="hidden w-full aspect-video bg-black rounded-lg overflow-hidden shadow-2xl mb-6 border border-stone-700 sticky top-0 z-10"></div>
-                
-                <!-- Grid de Vídeos (1 coluna no mobile, mais no desktop) -->
                 <div id="video-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 pb-20"></div>
             </div>
         </div>
     </div>
 
     <script>
-        // Toggle Menu Mobile
         const menuBtn = document.getElementById('menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-
-        function toggleMobileMenu() {
-            mobileMenu.classList.toggle('hidden');
-            mobileMenu.classList.toggle('flex');
-        }
-
+        function toggleMobileMenu() { mobileMenu.classList.toggle('hidden'); mobileMenu.classList.toggle('flex'); }
         menuBtn.addEventListener('click', toggleMobileMenu);
 
-        // --- DADOS ---
         const staticContent = {
-            projeto: {
-                title: "O Projeto Vozes e Memórias", category: "Institucional", icon: "book-open", color: "amber",
-                content: `<p class="mb-4"><strong>Resgatando raízes...</strong></p><p>O Projeto Vozes e Memórias nasceu da necessidade de conectar as novas gerações de José Gonçalves de Minas com sua história. Idealizado dentro da E. E. Dr. Tancredo Neves, a iniciativa transformou os alunos do curso Técnico em Agronegócio em verdadeiros pesquisadores e historiadores.</p>`
-            },
-            curso: {
-                title: "Sobre os Cursos Técnicos", category: "Formação", icon: "graduation-cap", color: "emerald",
-                content: `<p class="mb-4"><strong>Formando profissionais...</strong></p><p>Os Cursos Técnicos em Agronegócio e Desenvolvimento de Sistemas da Escola Estadual Dr. Tancredo Neves são verdadeiros motores de oportunidades. Com foco na união entre teoria e prática, preparando os alunos para superar os desafios da agricultura moderna e dominar as novas tecnologias.</p>`
-            }
+            projeto: { title: "O Projeto Vozes e Memórias", category: "Institucional", icon: "book-open", color: "amber", content: `<p class="mb-4"><strong>Resgatando raízes...</strong> O Projeto Vozes e Memórias nasceu da necessidade de conectar as novas gerações...</p>` },
+            curso: { title: "Sobre os Cursos Técnicos", category: "Formação", icon: "graduation-cap", color: "emerald", content: `<p class="mb-4"><strong>Formando profissionais...</strong> Os Cursos Técnicos em Agronegócio e Desenvolvimento de Sistemas...</p>` }
         };
 
         const postsData = [
             {
                 id: 1,
                 title: "O Mistério da Mulher de Branco",
-                category: "Lenda Urbana Regional",
+                category: "Causos & Lendas",
                 excerpt: "Nas margens do rio ou na escuridão da quaresma, as histórias de assombração moldaram o comportamento de uma geração.",
-                fullContent: `A história segue duas irmãs, Nelcides e Nilda, que após a morte do pai começam a brigar violentamente.`,
+                fullContent: `Dona Nelcides nos contou um relato de arrepiar...`,
                 author: "D. Nelcides",
-                date: "Nov. 2025",
-                icon: "ghost",
-                color: "stone",
-                pdfUrl: "Mulher-da-blusa-branca-e-saia-preta.pdf" 
+                date: "04 Dez 2024",
+                icon: "scroll",      
+                color: "burntAmber", 
+                pdfUrl: "arquivos/MEMORIAS_DO_VALE_JGM.pdf" 
             },
             {
                 id: 2,
                 title: "Vida na Roça: Camas de Couro",
-                category: "Relato Oral",
+                category: "Raízes Rurais",
                 excerpt: "Sr. Antônio Lago relembra os tempos difíceis, mas felizes, onde o trabalho era coletivo e a diversão era garantida.",
-                fullContent: `A narradora conta sobre uma noite, há cerca de 36 anos, em que ficou lavando roupa até escurecer num local chamado "Corno das Contendas".`,
+                fullContent: `A vida no campo antigamente era 'da água para o vinho'...`,
                 author: "Sr. Antônio",
-                date: "Nov. 2025",
-                icon: "moon",
-                color: "midnight",
-                pdfUrl: "O-Vento-no-Corno-das-Contendas.pdf"
+                date: "04 Dez 2024",
+                icon: "sprout",       
+                color: "terracotta",  
+                pdfUrl: "arquivos/A_casa_no_fim_da_rua.pdf"
             },
             {
                 id: 3,
-                title: "História do Lobisomem",
-                category: "Folclore",
-                excerpt: "A mãe de Nelcides reunia as crianças em volta de uma fogueira para contar histórias e mantê-las acordadas o suficiente para esvaziar a bexiga antes de dormir.",
-                fullContent: `Certa noite, após ver uma criatura puxando o xale de seu filho, Corina correu até a casa do irmão para verificar. A "prova" do sobrenatural foi encontrar a cama dele vazia no meio da noite.`,
-                author: "D. Nelcides",
-                date: "Nov. 2025",
-                icon: "scroll",
-                color: "burntAmber",
-                pdfUrl: "História-do-Lobisomem.pdf"
-            },
-            {
-                id: 4,
-                title: "Memórias da Vó Tereza",
-                category: "História de Vida",
-                excerpt: "O relato é uma entrevista onde Vó Tereza contrasta a vida dura do passado com a facilidade de hoje.",
-                fullContent: `Ela revela que não pôde estudar porque precisava cuidar dos irmãos menores e trabalhar na roça desde cedo.`,
-                author: "",
-                date: "Nov 2025",
-                icon: "sprout",
-                color: "terracotta",
-                pdfUrl: "Historias-da-vó-tereza.pdf" 
-            },
-            {
-                id: 5,
                 title: "A Luta pela Emancipação",
-                category: "Testemunho Histórico",
+                category: "Nossa História",
                 excerpt: "Como José Gonçalves de Minas deixou de ser distrito de Berilo para se tornar independente.",
-                fullContent: `A identidade de um povo também se faz na política e na educação. Dona Daci, relembra com orgulho a luta pela emancipação. José Gonçalves de Minas era distrito de Berilo, mas o desejo de independência falou mais alto.`,
+                fullContent: `A identidade de um povo também se faz na política e na educação. Dona Daci, filha do primeiro tabelião da cidade, relembra com orgulho a luta pela emancipação. José Gonçalves de Minas era distrito de Berilo, mas o desejo de independência falou mais alto.`,
                 author: "D. Daci",
-                date: "Nov. 2025",
+                date: "04 Dez 2024",
                 icon: "map-pin",
                 color: "emerald",
-                pdfUrl: "historia-de-jgm.pdf" 
+                pdfUrl: "arquivos/historia-de-jgm.pdf" 
             },
             {
                 id: 6,
                 title: "Dulce história na escola",
                 category: "Relato Profissional",
-                excerpt: "A professora Dulce narra a cronologia da Escola Estadual Doutor Tancredo Neves, desde sua autorização em 1952 até a implantação do ensino médio em 1998.",
-                fullContent: `Ela destaca que, por muito tempo, essa foi a única escola a oferecer educação básica no município, chegando a ter mais de mil alunos.`,
+                excerpt: "A professora Dulce narra a cronologia da Escola Estadual Doutor Tancredo Neves.",
+                fullContent: `Ela destaca que, por muito tempo, essa foi a única escola a oferecer educação básica no município.`,
                 author: "Prof. Dulce",
                 date: "Nov. 2025",
                 icon: "school",
                 color: "softLilac",
-                pdfUrl: "Dulce-história-na-escola.pdf" 
+                pdfUrl: "arquivos/Dulce-história-na-escola.pdf" 
             },
             {
                 id: 7,
                 title: "Memórias de Um Tempo",
                 category: "Memória Oral",
-                excerpt: "Antônio Lago descreve um passado de extrema dificuldade, onde a comunidade se ajudava mais ("mutirão"), mas a pobreza era severa.",
+                excerpt: "Antônio Lago descreve um passado de extrema dificuldade, onde a comunidade se ajudava mais.",
                 fullContent: `Ele revela estratégias de sobrevivência chocantes, como comer "ganhaçaia" (uma planta do mato) feita em salada quando não havia comida.`,
                 author: "António Lago",
                 date: "Nov. 2025",
                 icon: "mic",
                 color: "straw",
-                pdfUrl: "Memórias-de-Um-Tempo.pdf" 
+                pdfUrl: "arquivos/Memórias-de-Um-Tempo.pdf" 
             }
         ];
 
@@ -344,7 +238,6 @@
             { id: 'v4', title: 'A Vida na Roça Antigamente', videoId: '4xDzrJKXOOY', thumbnail: 'https://img.youtube.com/vi/4xDzrJKXOOY/hqdefault.jpg', duration: '10:15' }
         ];
 
-        // --- RENDERIZAÇÃO ---
         const postsContainer = document.getElementById('posts-container');
         const textModal = document.getElementById('modal-backdrop');
         const textWrapper = document.getElementById('text-modal-content-wrapper');
@@ -361,7 +254,7 @@
                     <div class="h-1.5 bg-${post.color}-600 w-full rounded-t-xl"></div>
                     <div class="p-5 flex-1 flex flex-col">
                         <div class="flex items-center gap-2 mb-3">
-                            <span class="p-1.5 rounded bg-${post.color}-50 text-${post.color}-700"><i data-lucide="${post.icon}" width="16" height="16"></i></span>
+                            <span class="p-1.5 rounded bg-${post.color}-100 text-${post.color}-700"><i data-lucide="${post.icon}" width="16" height="16"></i></span>
                             <span class="text-xs font-bold text-${post.color}-700 uppercase tracking-wide">${post.category}</span>
                         </div>
                         <h3 class="text-xl font-serif font-bold text-stone-900 mb-2 leading-tight">${post.title}</h3>
@@ -379,50 +272,20 @@
             lucide.createIcons();
         }
 
-        // Modais
         function openTextModal(id) {
             const post = postsData.find(p => p.id === id);
             if(!post) return;
-            
             let pdfSection = '';
             if (post.pdfUrl) {
-                pdfSection = `
-                    <div class="mt-8 bg-stone-50 p-4 rounded-xl border border-stone-200">
-                        <h3 class="text-sm font-bold text-stone-800 mb-3 flex items-center gap-2 uppercase tracking-wide">
-                            <i data-lucide="file-text" width="16"></i> Documento Original
-                        </h3>
-                        <div class="hidden md:block w-full h-[400px] bg-stone-200 rounded-lg overflow-hidden mb-3 border border-stone-300">
-                            <iframe src="${post.pdfUrl}" width="100%" height="100%"></iframe>
-                        </div>
-                        <a href="${post.pdfUrl}" target="_blank" class="w-full flex items-center justify-center gap-2 px-4 py-3 bg-stone-800 text-white rounded-lg hover:bg-stone-700 transition-colors font-medium text-sm">
-                            <i data-lucide="download" width="16"></i> Baixar PDF
-                        </a>
-                    </div>
-                `;
+                pdfSection = `<div class="mt-8 bg-stone-50 p-4 rounded-xl border border-stone-200"><h3 class="text-sm font-bold text-stone-800 mb-3 flex items-center gap-2 uppercase tracking-wide"><i data-lucide="file-text" width="16"></i> Documento Original</h3><div class="hidden md:block w-full h-[400px] bg-stone-200 rounded-lg overflow-hidden mb-3 border border-stone-300"><iframe src="${post.pdfUrl}" width="100%" height="100%"></iframe></div><a href="${post.pdfUrl}" target="_blank" class="w-full flex items-center justify-center gap-2 px-4 py-3 bg-stone-800 text-white rounded-lg hover:bg-stone-700 transition-colors font-medium text-sm"><i data-lucide="download" width="16"></i> Baixar PDF</a></div>`;
             }
-
-            textWrapper.innerHTML = `
-                <div class="flex items-center gap-2 mb-4">
-                   <span class="px-2 py-1 rounded bg-${post.color}-100 text-${post.color}-800 text-xs font-bold uppercase tracking-wide">${post.category}</span>
-                </div>
-                <h2 class="text-2xl md:text-3xl font-serif font-bold text-stone-900 mb-6 leading-tight">${post.title}</h2>
-                <div class="prose prose-stone prose-lg max-w-none font-serif text-stone-700 leading-relaxed">
-                    ${post.fullContent.split('\n').map(p => `<p class="mb-4">${p}</p>`).join('')}
-                </div>
-                ${pdfSection}
-            `;
+            textWrapper.innerHTML = `<div class="flex items-center gap-2 mb-4"><span class="px-2 py-1 rounded bg-${post.color}-100 text-${post.color}-700 text-xs font-bold uppercase tracking-wide">${post.category}</span></div><h2 class="text-2xl md:text-4xl font-serif font-bold text-stone-900 mb-6 leading-tight">${post.title}</h2><div class="prose prose-stone prose-lg max-w-none font-serif text-stone-700 leading-relaxed">${post.fullContent.split('\n').map(p => `<p class="mb-4">${p}</p>`).join('')}</div>${pdfSection}`;
             textModal.classList.remove('hidden'); textModal.classList.add('flex'); lucide.createIcons();
         }
 
         function openStaticModal(type) {
             const data = staticContent[type];
-            textWrapper.innerHTML = `
-                <div class="flex items-center gap-3 mb-6">
-                   <div class="p-2 rounded-lg bg-${data.color}-100 text-${data.color}-700"><i data-lucide="${data.icon}" width="24"></i></div>
-                </div>
-                <h2 class="text-2xl md:text-3xl font-serif font-bold text-stone-900 mb-4">${data.title}</h2>
-                <div class="prose prose-stone text-stone-600">${data.content}</div>
-            `;
+            textWrapper.innerHTML = `<div class="flex items-center gap-3 mb-6"><div class="p-2 rounded-lg bg-${data.color}-100 text-${data.color}-700"><i data-lucide="${data.icon}" width="24"></i></div></div><h2 class="text-2xl md:text-3xl font-serif font-bold text-stone-900 mb-4">${data.title}</h2><div class="prose prose-stone text-stone-600">${data.content}</div>`;
             textModal.classList.remove('hidden'); textModal.classList.add('flex'); lucide.createIcons();
         }
 
@@ -431,14 +294,9 @@
             el.classList.add('hidden'); el.classList.remove('flex');
             if(modalId === 'video-gallery-modal') { mainPlayer.innerHTML = ''; mainPlayer.classList.add('hidden'); }
         }
-        
         document.getElementById('modal-close').addEventListener('click', () => closeModal('modal-backdrop'));
-        window.onclick = function(event) {
-            if (event.target === textModal) closeModal('modal-backdrop');
-            if (event.target === videoGalleryModal) closeModal('video-gallery-modal');
-        }
+        window.onclick = function(event) { if (event.target === textModal) closeModal('modal-backdrop'); if (event.target === videoGalleryModal) closeModal('video-gallery-modal'); }
 
-        // Vídeo
         function openVideoGallery() { renderVideoGrid(); videoGalleryModal.classList.remove('hidden'); videoGalleryModal.classList.add('flex'); }
         function closeVideoGallery() { closeModal('video-gallery-modal'); }
         function renderVideoGrid() {
@@ -447,19 +305,7 @@
                 const card = document.createElement('div');
                 card.className = "bg-stone-800 rounded-lg overflow-hidden cursor-pointer group hover:ring-2 hover:ring-amber-500 transition-all flex md:block items-center";
                 card.onclick = () => playVideo(video.videoId, video.title);
-                
-                // Ajuste para lista no mobile (Thumbnail esquerda, Texto direita)
-                card.innerHTML = `
-                    <div class="relative w-32 md:w-full aspect-video bg-black flex-none">
-                        <img src="${video.thumbnail}" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity">
-                        <div class="absolute inset-0 flex items-center justify-center md:hidden group-hover:flex">
-                             <i data-lucide="play" width="16" height="16" class="text-white"></i>
-                        </div>
-                    </div>
-                    <div class="p-3 flex-1">
-                        <h4 class="text-stone-200 text-sm font-medium line-clamp-2">${video.title}</h4>
-                        <span class="text-stone-500 text-xs mt-1 block">${video.duration}</span>
-                    </div>`;
+                card.innerHTML = `<div class="relative w-32 md:w-full aspect-video bg-black flex-none"><img src="${video.thumbnail}" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"><div class="absolute inset-0 flex items-center justify-center md:hidden group-hover:flex"><i data-lucide="play" width="16" height="16" class="text-white"></i></div></div><div class="p-3 flex-1"><h4 class="text-stone-200 text-sm font-medium line-clamp-2">${video.title}</h4><span class="text-stone-500 text-xs mt-1 block">${video.duration}</span></div>`;
                 videoGrid.appendChild(card);
             });
             lucide.createIcons();
@@ -468,7 +314,6 @@
             mainPlayer.classList.remove('hidden'); mainPlayer.scrollIntoView({ behavior: 'smooth' });
             mainPlayer.innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${videoId}?autoplay=1" title="${title}" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
         }
-
         document.addEventListener('DOMContentLoaded', () => { renderPosts(); lucide.createIcons(); });
     </script>
 </body>
